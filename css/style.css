@@ -1,0 +1,253 @@
+* {
+    font-family: 'Inter', sans-serif;
+    margin: none;
+    box-sizing: border-box;
+}
+body {
+    background-color: #fff;
+    margin: 0px;
+}
+
+.container {
+    box-shadow: 0px 4px 30px -10px rgba(0, 0, 0, 0.25);
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+header {
+    padding: 15px 0px 15px 0px;
+    width: 1076px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav button {
+    border: none;
+
+    background-color: #fff;
+
+}
+
+main {
+    display: flex;
+    gap: 10px;
+    max-width: 1347px;
+    padding: 15px 0px 15px 0px;
+}
+.products {
+    max-width: 1074px;
+    margin: none;
+    padding: none;
+}
+.products_lista {
+    list-style: none;
+    height: 838px;
+    width: 968px;
+    gap: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.products_lista_item {
+    width: 280px;
+    height: 408px;
+    padding: 0px;
+    margin: 0px;
+
+    background-color: #FFFFFF;
+    border: #F5F5F5 2px solid;
+}
+
+.products_lista_item_image {
+    margin: 0;
+    background: #F5F5F5;
+    height: 140px;
+
+    display: flex;
+    justify-content: center;
+}
+
+.products_lista_item_text {
+    max-width: 296px;
+    height: 254px;
+    padding: 10px 12px 10px 15px;
+
+    gap: 15px;
+}
+
+.products_lista_item_text_tag {
+    background: #2E245E;
+
+
+    width: 70px;
+    height: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.products_lista_item_text_tag p {
+    color: #fff;
+    font-size: 12px;
+}
+
+.products_lista_item_text_value {
+    font-size: 14px;
+    font-weight: bold;
+
+    color: #2E245E;
+}
+/* .products_lista_item_text_description {
+    padding: 5px;
+} */
+
+.products_lista_item_add_cart {
+    border: none;
+    background-color: #fff;
+    padding: 0;
+}
+
+aside {
+    max-width: 347px;
+    width: 300px;
+    margin: 0;
+    padding: 15px 0px 15px 0px;
+}
+
+.pesquisa {
+    display: flex;
+    gap: 8px;
+    margin: 0;
+}
+.pesquisa input {
+    width: 200px;
+}
+
+.pesquisa button {
+    background-color: #37268C;
+    border: none;
+    width: 90px;
+    height: 30px;
+
+    color: #FFFFFF;
+    font-size: 16px;
+    font-style: medium;
+}
+
+.carrinho_compras {
+    max-width: 347px;
+    margin-top: 30px;
+}
+
+.carrinho_compras_p {
+    background-color: #37268C;
+    height: 50px;
+    margin: 0;
+    font-style: bold;
+    font-size: 18px;
+    color: #FFFFFF;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carrinho_compras_products {
+    height: 214px;
+    max-height: 329px;
+    max-width: 300px;
+    background: #F5F5F5;
+    overflow-y: auto;
+}
+.carrinho_compras_products ul{
+    padding: 0px;
+    margin-top: 20px;
+
+}
+.carrinho_compras_item {
+    display: flex;
+    justify-content: center;
+    max-width: 282px;
+    height: 92px;
+    padding: 0px;
+    gap: 18px;
+
+
+}
+.carrinho_compras_item_image {
+
+    height: 92px;
+    background-color: #fff;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.carrinho_compras_item_image img {
+    height: 67px;
+    
+}
+
+.carrinho_compras_item_text {
+    margin: 0;
+    padding: 0px;
+    height: 92px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.carrinho_compras_item_text_title {
+    font-size: 16px;
+    margin: 0px;
+}
+
+.carrinho_compras_item_text_value {
+    font-style: bold;
+    font-size: 14px;
+}
+
+.carrinho_compras_remove {
+    font-size: 14px;
+    color: #242424;
+
+    border: none;
+    background-color: #F5F5F5;
+    padding: 0;
+}
+
+.carrinho_compras_total {
+    background: #292929;
+    margin: 0px;
+    padding: 0px;
+}
+.carrinho_compras_total ul {
+    list-style: none;
+    padding: 0%;
+    margin: 0px;
+}
+
+.carrinho_compras_total ul li {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+.carrinho_compras_total ul li p {
+    color: #fff;
+    font-size: 16px;
+}
+.bold {
+    font-style: Bold;
+    font-size: 16px;
+}
