@@ -116,6 +116,8 @@ function cardsCarrinho (arr) {
                 carrinhoVazio ()
             } else {
                 divCarrinho.innerHTML = ''
+                divTotal.innerHTML = ''
+                total (carrinho)
                 cardsCarrinho(carrinho)
             }
         })

@@ -63,6 +63,10 @@ main {
     border: #F5F5F5 2px solid;
 }
 
+.products_lista_item:hover {
+    border: #37268C 2px solid;
+}
+
 .products_lista_item_image {
     margin: 0;
     background: #F5F5F5;
