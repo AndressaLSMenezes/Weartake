@@ -18,7 +18,7 @@ function cards (arr) {
         const pValue       = document.createElement('p')
         const buttonAdd    = document.createElement('button')
 
-        imgCard.src = arr[i].img
+        imgCard.src = `.${arr[i].img}`
         figure.appendChild(imgCard)
 
         figure.classList ='products_lista_item_image'
@@ -91,7 +91,7 @@ function cardsCarrinho (arr) {
 
         liCarrinho.classList = "carrinho_compras_item"
 
-        imgcarrinho.src = arr[i].img
+        imgcarrinho.src = `.${arr[i].img}`
         figureCarrinho.appendChild(imgcarrinho)
         figureCarrinho.classList = "carrinho_compras_item_image"
         liCarrinho.appendChild(figureCarrinho)
