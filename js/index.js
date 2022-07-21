@@ -1,6 +1,7 @@
 let carrinho = []
+const sectionProducts = document.querySelector('.products')
+
 function cards (arr) {
-    const sectionProducts = document.querySelector('.products')
 
     const ulLista     = document.createElement('ul')
     ulLista.classList = 'products_lista'
@@ -46,8 +47,11 @@ function cards (arr) {
         divText.appendChild(buttonAdd)
 
         buttonAdd.addEventListener('click', function() {
+            divCarrinho.innerHTML = ''
             carrinho.push(arr[i])
             cardsCarrinho(carrinho)
+            divTotal.innerHTML = ''
+            total(carrinho)
         })
 
         divText.classList = "products_lista_item_text"
@@ -65,13 +69,13 @@ function cards (arr) {
     return sectionProducts
 }
 
-
-cards (data)
-
+const divCarrinho = document.querySelector('.carrinho_compras_products')
 
 function cardsCarrinho (arr) {
+    
+    const ul = document.createElement('ul')
+    ul.classList = "carrinho_compras_products_lista"
 
-    const ul = document.querySelector('.carrinho_compras_products_lista')
     ul.innerHTML = ''
 
 
@@ -105,10 +109,16 @@ function cardsCarrinho (arr) {
 
         buttonRemove.addEventListener('click', function() {
             carrinho.splice(i, 1)
-            cardsCarrinho(carrinho)
+
+            if(carrinho.length == 0) {
+                divCarrinho.innerHTML = ''
+                divTotal.innerHTML = ''
+                carrinhoVazio ()
+            } else {
+                divCarrinho.innerHTML = ''
+                cardsCarrinho(carrinho)
+            }
         })
-
-
 
         divTexto.appendChild(buttonRemove)
 
@@ -118,133 +128,126 @@ function cardsCarrinho (arr) {
         ul.appendChild(liCarrinho)
     }
 
-    return ul
+    divCarrinho.appendChild(ul)
+
+    return divCarrinho
+}
+
+function carrinhoVazio () {
+
+    const h2Carrinho = document.createElement('h2')
+    const pAdd = document.createElement('p')
+
+    h2Carrinho.innerText = 'Carrinho vázio'
+    h2Carrinho.classList = 'h2Carrinho'
+    divCarrinho.appendChild(h2Carrinho)
+
+    pAdd.innerText = 'Adicione itens'
+    pAdd.classList = 'pAdd'
+    divCarrinho.appendChild(pAdd)
+
+    return divCarrinho
+}
+carrinhoVazio ()
+
+let camisetas  = []
+let acessorios = []
+let calcados   = []
+
+
+function selector (arr) {
+
+    cards (arr)
+
+    for(let i = 0; i < arr.length; i++) {
+        if(arr[i].tag[0] == "Camisetas") {
+            camisetas.push(arr[i])
+        } else if (arr[i].tag[0] == "Acessórios"){
+            acessorios.push(arr[i])
+        } else if(arr[i].tag[0] == "Calçados") {
+            calcados.push(arr[i])
+        }
+    }
+
+
+    const buttonTodos = document.getElementById("buttonTodos");
+    buttonTodos.addEventListener("click", function () {
+        sectionProducts.innerHTML = ''
+        return cards(arr)
+    });
+
+    const buttonAcessorios = document.getElementById("buttonAcessorios");
+    buttonAcessorios.addEventListener("click", function () {
+
+        sectionProducts.innerHTML = ''
+        return cards(acessorios)
+
+    });
+
+    const buttonCalcados = document.getElementById("buttonCalcados");
+    buttonCalcados.addEventListener("click", function () {
+        
+        sectionProducts.innerHTML = ''
+
+        return cards(calcados)
+    });
+
+    const buttonCamisetas = document.getElementById("buttonCamisetas");
+    buttonCamisetas.addEventListener("click", function () {
+        
+        sectionProducts.innerHTML = ''
+
+        return cards(camisetas)
+    });
+    return sectionProducts
+}
+
+selector(data)
+
+const divTotal = document.querySelector(".carrinho_compras_total")
+
+function total (arr) {
+    let quantidade = 0
+    let valor = 0
+
+    quantidade = arr.length
+
+    for(let i = 0; i< arr.length; i++) {
+
+        valor += arr[i].value  
+    }
+
+    const ul          = document.createElement('ul')
+    const liQuatidade = document.createElement('li')
+    const pQuatidade  = document.createElement('p')
+    const pNumero     = document.createElement('p')
+
+    const liTotal     = document.createElement('li')
+    const pTotal      = document.createElement('p')
+    const pValor      = document.createElement('p')
+
+    pQuatidade.innerText = 'Quantidade'
+    pQuatidade.classList = 'bold'
+
+    liQuatidade.appendChild(pQuatidade)
+
+    pNumero.innerText = quantidade
+    liQuatidade.appendChild(pNumero)
+
+    pTotal.innerText = 'Total'
+    pTotal.classList = 'bold'
+    liTotal.appendChild(pTotal)
+
+    pValor.innerText = valor.toLocaleString("pt-br", { style: "currency", currency: "BRL", })
+    liTotal.appendChild(pValor)
+
+    ul.appendChild(liQuatidade)
+    ul.appendChild(liTotal)
+
+    divTotal.appendChild(ul)
+
+    return divTotal
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function selector (arr) {
-
-//     let camisetas  = []
-//     let acessorios = []
-//     let calcados   = []
-
-//     for(let i = 0; i < arr.length; i++) {
-//         if(arr[i].tag[0] == "Camisetas") {
-//             camisetas.push(arr[i])
-//         } else if (arr[i].tag[0] == "Acessórios"){
-//             acessorios.push(arr[i])
-//         } else if(arr[i].tag[0] == "Calçados") {
-//             calcados.push(arr[i])
-//         }
-//     }
-//     const div = document.querySelector('.products')
-//     div.appendChild(cards(data))
-
-//     const buttonTodos = document.getElementById("buttonTodos");
-//     buttonTodos.addEventListener("click", function () {
-//         div.appendChild(cards(data))
-//     return cards(data)
-//     });
-
-//     const buttonAcessorios = document.getElementById("buttonAcessorios");
-//     buttonAcessorios.addEventListener("click", function () {
-//         div = ''
-//         div.appendChild(cards(camisetas))
-//         return cards(camisetas)
-//     });
-
-//     const buttonCalcados = document.getElementById("buttonCalcados");
-//     buttonCalcados.addEventListener("click", function () {
-       
-//         div = ''
-//         div.appendChild(cards(calcados))
-
-//         return div
-//     });
-
-//     const buttonCamisetas = document.getElementById("buttonCamisetas");
-//     buttonCamisetas.addEventListener("click", function () {
-       
-//         div = ''
-//         div.appendChild(cards(camisetas))
-//         return cards(camisetas)
-//     });
-
-//     return div
-// }
-
-
-// const buttonPesquisa = document.querySelector('findButton')
-
-// buttonPesquisa.addEventListener('click', pesquisa(data))
-
-// function pesquisa (arr) {
-//     const inputPesquisa = document.querySelector('input')
-//     const pesquisaText = inputPesquisa.value
-//     let result = []
-//     for(let i = 0; i < arr.length; i++) {
-//         if(pesquisaText == arr[i].nameItem) {
-//             result.push(arr[i])
-//         }
-//     }
-//     const sectionProducts = document.querySelector('.products')
-//     sectionProducts.innerHTML = ''
-
-//     return cards(result)
-// }
